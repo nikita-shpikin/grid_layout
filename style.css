@@ -4,6 +4,8 @@
 	--colorActive: #6c5ce7;
 	--decorCircleColor: #fdcb6e;
 	--secondaryColor: #adadad;
+	--colorHighlight: #e84393;
+	--colorHighlightAfter: #55efc4;
 }
 
 body * {
@@ -32,10 +34,6 @@ body * {
 	border: none;
 }
 
-.header {
-	box-shadow: 0px 2px 4px rgba(38, 50, 56, 0.16);
-}
-
 .header-container {
 	padding: 16px 5%;
 	display: grid;
@@ -61,6 +59,10 @@ body * {
 .header__burger {
 	display: none;
 	cursor: pointer;
+}
+
+.header__burger-item {
+	width: 60px;
 }
 
 .header__menu {
@@ -104,8 +106,54 @@ body * {
 
 .header__btn {
 	border-radius: 50px;
-	padding: 12px 28px;
+	padding: 12px 26px;
 	border: 1px solid var(--secondaryColor);
+}
+
+.combine-container {
+	padding: 175px 15px;
+	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
+	background: url('./images/combine/dots.svg') no-repeat top right,
+		url('./images/combine/rectangle.svg') no-repeat top right;
+	display: grid;
+	place-content: center;
+}
+
+.combine__title {
+	text-align: center;
+	font-weight: 800;
+	font-size: 96px;
+	line-height: 104px;
+	letter-spacing: -3px;
+	color: var(--mainColorText);
+	text-shadow: 0px 4px 0px var(--colorContent);
+}
+
+.combine__highlight {
+	color: var(--colorHighlight);
+	position: relative;
+	z-index: 0;
+}
+
+.combine__highlight::before {
+	content: '';
+	position: absolute;
+	left: -5%;
+	top: 60%;
+	z-index: -1;
+	width: 110%;
+	height: 40%;
+	background-color: var(--colorHighlightAfter);
+	border-radius: 999px;
+}
+
+.combine__sub-title {
+	text-align: center;
+	font-weight: 900;
+	font-size: 64px;
+	line-height: 77px;
+	letter-spacing: -1px;
+	color: var(--mainColorText);
 }
 
 @media screen and (max-width: 1064px) {
@@ -160,6 +208,15 @@ body * {
 	.header__item::after {
 		display: none;
 	}
+
+	.combine-container {
+	}
+
+	.combine-container {
+		background: url('./images/combine/dots.svg') no-repeat right,
+			url('./images/combine/rectangle-863.svg') no-repeat right,
+			url('./images/combine/wave-863.svg') repeat-x bottom / auto;
+	}
 }
 
 @media screen and (max-width: 576px) {
@@ -169,10 +226,16 @@ body * {
 
 	.header__logo {
 		font-size: 24px;
+		justify-self: flex-start;
 	}
 	.header__btn {
 		font-size: 18px;
 		border-radius: 8px;
+		padding: 8px 16px;
+	}
+
+	.header__burger-item {
+		width: auto;
 	}
 }
 
