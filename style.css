@@ -117,15 +117,13 @@ body * {
 }
 
 .combine-container {
+	padding: 80px 6%;
 	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
 	background: url('./images/combine/dots.svg') no-repeat top right,
 		url('./images/combine/rectangle.svg') no-repeat right -20%;
-	display: grid;
-	place-items: center;
 }
 
 .combine__title {
-	margin-top: 80px;
 	text-align: center;
 	font-weight: 800;
 	font-size: 96px;
@@ -166,15 +164,18 @@ body * {
 .combine__content {
 	margin-top: 65px;
 	display: grid;
-	gap: 3%;
-	grid-template-columns: 290px 270px 170px 170px 170px;
-	grid-template-rows: 150px 240px 185px 80px;
+	gap: 30px;
+	grid-template-columns: repeat(2, minmax(130px, 270px)) repeat(
+			3,
+			minmax(130px, 170px)
+		);
+	grid-template-rows: 120px 240px 222px 82px 72px;
 
 	grid-template-areas:
 		'textOne imageOne imageOne textTwo textTwo'
 		'sphere imageOne imageOne a nike'
 		'sphere book girl girl window'
-		'btn book girl girl window'
+		'btn book girl girl .'
 		'. . girl girl .';
 }
 
@@ -191,7 +192,7 @@ body * {
 
 .combine__item:nth-child(2) {
 	grid-area: imageOne;
-	background: url('./images/combine/man.jpg') no-repeat center;
+	background: url('./images/combine/man.jpg') no-repeat center / cover;
 	padding-bottom: 20px;
 	display: grid;
 	place-content: end center;
@@ -200,6 +201,7 @@ body * {
 .combine__item:nth-child(3) {
 	color: var(--mainColorText);
 	grid-area: textTwo;
+	margin-bottom: -7px;
 	display: grid;
 	place-content: end start;
 }
@@ -214,12 +216,12 @@ body * {
 
 .combine__item:nth-child(5) {
 	grid-area: a;
-	background: url('./images/combine/a.jpg') no-repeat center;
+	background: url('./images/combine/a.jpg') no-repeat center / cover;
 }
 
 .combine__item:nth-child(6) {
 	grid-area: nike;
-	background: url('./images/combine/nike.jpg') no-repeat center;
+	background: url('./images/combine/nike.jpg') no-repeat center / cover;
 }
 
 .combine__item:nth-child(7) {
@@ -227,24 +229,23 @@ body * {
 	font-size: 32px;
 	line-height: 48px;
 	border-radius: 50px;
-	height: 82px;
 }
 
 .combine__item:nth-child(8) {
 	grid-area: book;
-	background: url('./images/combine/book.jpg') no-repeat center;
+	background: url('./images/combine/book.jpg') no-repeat center / cover;
 }
 
 .combine__item:nth-child(9) {
 	padding-top: 20px;
 	grid-area: girl;
-	background: url('./images/combine/girl.jpg') no-repeat center;
+	background: url('./images/combine/girl.jpg') no-repeat center / cover;
 	display: grid;
 	place-content: start center;
 }
 .combine__item:nth-child(10) {
 	grid-area: window;
-	background: url('./images/combine/window.jpg') no-repeat center;
+	background: url('./images/combine/window.jpg') no-repeat center / cover;
 }
 
 .combine__strong {
