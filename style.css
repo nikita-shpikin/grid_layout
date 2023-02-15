@@ -24,6 +24,8 @@ body * {
 	letter-spacing: 0.2px;
 	color: var(--colorActive);
 	border: 1px solid var(--secondaryColor);
+	display: grid;
+	place-content: center;
 }
 
 .btn:hover {
@@ -38,7 +40,7 @@ body * {
 .header-container {
 	padding: 16px 5%;
 	display: grid;
-	grid-template-columns: 70px 1fr 12fr 113px;
+	grid-template-columns: 70px 1fr 12fr 170px;
 	place-items: center;
 }
 
@@ -107,18 +109,23 @@ body * {
 
 .header__btn {
 	border-radius: 50px;
-	padding: 12px 26px;
 	border: 1px solid var(--secondaryColor);
+	font-size: 24px;
+	line-height: 36px;
+	height: 100%;
+	width: 100%;
 }
 
 .combine-container {
-	padding: 80px 135px;
 	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
 	background: url('./images/combine/dots.svg') no-repeat top right,
 		url('./images/combine/rectangle.svg') no-repeat right -20%;
+	display: grid;
+	place-items: center;
 }
 
 .combine__title {
+	margin-top: 80px;
 	text-align: center;
 	font-weight: 800;
 	font-size: 96px;
@@ -159,16 +166,16 @@ body * {
 .combine__content {
 	margin-top: 65px;
 	display: grid;
-	gap: 30px;
-	grid-template-columns: 270px repeat(4, 1fr);
-	grid-template-rows: repeat(7, 1fr);
+	gap: 3%;
+	grid-template-columns: 290px 270px 170px 170px 170px;
+	grid-template-rows: 150px 240px 185px 80px;
+
 	grid-template-areas:
 		'textOne imageOne imageOne textTwo textTwo'
-		'sphere imageOne imageOne . .'
-		'sphere imageOne imageOne . .'
-		'sphere . . . . '
-		'sphere . . . .'
-		'. . . . .';
+		'sphere imageOne imageOne a nike'
+		'sphere book girl girl window'
+		'btn book girl girl window'
+		'. . girl girl .';
 }
 
 .combine__item {
@@ -176,30 +183,68 @@ body * {
 }
 
 .combine__item:nth-child(1) {
-	grid-area: textOne;
 	color: var(--mainColorText);
+	grid-area: textOne;
+	display: grid;
+	place-content: start start;
 }
 
 .combine__item:nth-child(2) {
 	grid-area: imageOne;
 	background: url('./images/combine/man.jpg') no-repeat center;
-
+	padding-bottom: 20px;
 	display: grid;
 	place-content: end center;
 }
 
 .combine__item:nth-child(3) {
-	padding-top: 32px;
 	color: var(--mainColorText);
 	grid-area: textTwo;
+	display: grid;
+	place-content: end start;
 }
 
 .combine__item:nth-child(4) {
 	padding-top: 40px;
 	grid-area: sphere;
-	background: url('./images/combine/sphere.jpg') no-repeat center;
+	background: url('./images/combine/sphere.jpg') no-repeat center / cover;
 	color: var(--colorContent);
 	text-align: center;
+}
+
+.combine__item:nth-child(5) {
+	grid-area: a;
+	background: url('./images/combine/a.jpg') no-repeat center;
+}
+
+.combine__item:nth-child(6) {
+	grid-area: nike;
+	background: url('./images/combine/nike.jpg') no-repeat center;
+}
+
+.combine__item:nth-child(7) {
+	grid-area: btn;
+	font-size: 32px;
+	line-height: 48px;
+	border-radius: 50px;
+	height: 82px;
+}
+
+.combine__item:nth-child(8) {
+	grid-area: book;
+	background: url('./images/combine/book.jpg') no-repeat center;
+}
+
+.combine__item:nth-child(9) {
+	padding-top: 20px;
+	grid-area: girl;
+	background: url('./images/combine/girl.jpg') no-repeat center;
+	display: grid;
+	place-content: start center;
+}
+.combine__item:nth-child(10) {
+	grid-area: window;
+	background: url('./images/combine/window.jpg') no-repeat center;
 }
 
 .combine__strong {
@@ -235,6 +280,10 @@ body * {
 		grid-template-columns: repeat(4, 137px);
 	}
 
+	.header__item::after {
+		display: none;
+	}
+
 	.header__icon {
 		display: none;
 	}
@@ -243,7 +292,7 @@ body * {
 	}
 }
 
-@media screen and (max-width: 863px) {
+@media screen and (max-width: 950px) {
 	.header-container {
 		grid-template-columns: 1fr 2fr 1fr;
 	}
@@ -275,10 +324,6 @@ body * {
 		display: block;
 	}
 
-	.header__item::after {
-		display: none;
-	}
-
 	.combine-container {
 	}
 
@@ -301,7 +346,7 @@ body * {
 	.header__btn {
 		font-size: 18px;
 		border-radius: 8px;
-		padding: 8px 16px;
+		height: 40px;
 	}
 
 	.header__burger-item {
