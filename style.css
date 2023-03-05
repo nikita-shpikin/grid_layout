@@ -121,10 +121,11 @@ body * {
 	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
 	background: url('./images/combine/dots.svg') no-repeat top right,
 		url('./images/combine/rectangle.svg') no-repeat right -20%;
+	display: grid;
+	justify-items: center;
 }
 
 .combine__title {
-	text-align: center;
 	font-weight: 800;
 	font-size: 96px;
 	line-height: 104px;
@@ -153,7 +154,6 @@ body * {
 
 .combine__sub-title {
 	margin-top: 15px;
-	text-align: center;
 	font-weight: 900;
 	font-size: 64px;
 	line-height: 77px;
@@ -165,17 +165,22 @@ body * {
 	margin-top: 65px;
 	display: grid;
 	gap: 30px;
-	grid-template-columns: repeat(2, minmax(130px, 270px)) repeat(
+	place-content: center;
+
+	/* auto-fill auto-fit */
+
+	grid-template-columns: repeat(2, minmax(130px, 275px)) repeat(
 			3,
-			minmax(130px, 170px)
+			minmax(88px, 170px)
 		);
-	grid-template-rows: 120px 240px 222px 82px 50px;
+
+	grid-template-rows: 90px minmax(auto, 190px) minmax(100px, 175px) 82px 42px;
 
 	grid-template-areas:
 		'textOne imageOne imageOne textTwo textTwo'
 		'sphere imageOne imageOne a nike'
 		'sphere book girl girl window'
-		'btn book girl girl .'
+		'btn book girl girl window'
 		'. . girl girl .';
 }
 
@@ -189,6 +194,7 @@ body * {
 
 .combine__item:nth-child(2) {
 	grid-area: imageOne;
+	align-self: self-end;
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: 1fr;
@@ -206,11 +212,12 @@ body * {
 
 .combine__item:nth-child(3) {
 	grid-area: textTwo;
-	padding-top: 50px;
+	padding-top: 55px;
 }
 
 .combine__item:nth-child(4) {
 	grid-area: sphere;
+	align-self: center;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
@@ -232,14 +239,18 @@ body * {
 
 .combine__item:nth-child(5) {
 	grid-area: a;
+	align-self: end;
 }
 
 .combine__item:nth-child(6) {
 	grid-area: nike;
+	align-self: end;
 }
 
 .combine__item:nth-child(7) {
 	grid-area: btn;
+	font-size: clamp(14px, 2.5vw, 32px);
+	border-radius: 50px;
 }
 
 .combine__item:nth-child(8) {
@@ -275,7 +286,7 @@ body * {
 
 :is(.combine__item:nth-child(2), .combine__item:nth-child(9)) {
 	font-weight: 700;
-	font-size: 48px;
+	font-size: clamp(22px, 3vw, 47px);
 	line-height: 56px;
 	letter-spacing: -1px;
 	color: var(--colorContent);
