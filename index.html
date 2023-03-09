@@ -57,16 +57,35 @@
 			<section class="combine">
 				<div class="container combine-container">
 					<h1 class="combine__title">
-						Combine <span class="combine__highlight">fine</span> images
+						Combine
+
+						<span class="combine__highlight_sm">
+							<span class="combine__highlight">fine</span> images
+						</span>
+
+						<span class="combine__highlight_xs">
+							<span class="combine__highlight">cool</span> images
+						</span>
 					</h1>
-					<h2 class="combine__sub-title">To represent a product</h2>
+					<h2 class="combine__sub-title combine__sub-title_sm">
+						To represent a product
+					</h2>
+					<h2 class="combine__sub-title combine__sub-title_xs">
+						To create any grid by scaling and resizing
+					</h2>
 					<article class="combine__content">
-						<p class="combine__item combine__text">
+						<p class="combine__item">
 							Use mixed grid with imagery, replace with your own photos and
 							descriptions
 						</p>
 						<figure class="combine__item">
-							<img src="./images/combine/man.png" alt="man in the office" />
+							<picture>
+								<source
+									srcset="./images/combine/man-1064.png"
+									media="(max-width: 768px)"
+								/>
+								<img src="./images/combine/man.png" alt="man in the office" />
+							</picture>
 							<figcaption>Consider it done!</figcaption>
 						</figure>
 						<p class="combine__item">
@@ -74,43 +93,75 @@
 							agency web site
 						</p>
 						<figure class="combine__item">
-							<img
-								src="./images/combine/sphere.png"
-								alt="abstract sphere on black background"
-							/>
+							<picture>
+								<source
+									srcset="./images/combine/pomade-1964.png"
+									media="(max-width: 768px)"
+								/>
+								<img
+									src="./images/combine/sphere.png"
+									alt="abstract sphere on black background"
+								/>
+							</picture>
 							<figcaption>
-								<strong>We aimed to deliver HQ templates for Figma</strong>Used
-								by 123 people
+								<strong>We aimed to deliver HQ templates for Figma</strong>
+								<br />
+								Used by 123 people
 							</figcaption>
 						</figure>
-						<img
-							class="combine__item"
-							src="./images/combine/a.png"
-							alt="letter a on a light background"
-						/>
-						<img
-							class="combine__item"
-							src="./images/combine/nike.png"
-							alt="blue Nike sneakers on a blue background"
-						/>
-						<a href="#" class="combine__item btn">Learn more</a>
-						<img
-							class="combine__item"
-							src="./images/combine/book.png"
-							alt="orange book about design on yellow table"
-						/>
-						<figure class="combine__item">
-							<img
-								src="./images/combine/girl.png"
-								alt="kopeck piece touches her lip with a finger on a pink background"
+						<picture class="combine__item">
+							<source
+								srcset="./images/combine/watch.png"
+								media="(max-width: 768px)"
 							/>
+							<img
+								src="./images/combine/a.png"
+								alt="letter a on a light background"
+							/>
+						</picture>
+						<picture class="combine__item">
+							<source
+								srcset="./images/combine/pots.png"
+								media="(max-width: 768px)"
+							/>
+
+							<img
+								src="./images/combine/nike.png"
+								alt="blue Nike sneakers on a blue background"
+							/>
+						</picture>
+						<a href="#" class="combine__item btn">Learn more</a>
+						<picture class="combine__item">
+							<source
+								srcset="./images/combine/letter.png"
+								media="(max-width: 768px)"
+							/>
+							<img
+								src="./images/combine/book.png"
+								alt="orange book about design on yellow table"
+							/>
+						</picture>
+						<figure class="combine__item">
+							<picture>
+								<source
+									srcset="./images/combine/colors.png"
+									media="(max-width: 768px)"
+								/>
+								<img
+									src="./images/combine/girl.png"
+									alt="kopeck piece touches her lip with a finger on a pink background"
+								/>
+							</picture>
+
 							<figcaption>See my goal?</figcaption>
 						</figure>
-						<img
-							class="combine__item"
-							src="./images/combine/window.png"
-							alt="window	"
-						/>
+						<picture class="combine__item">
+							<source
+								srcset="./images/combine/flower.png"
+								media="(max-width: 768px)"
+							/>
+							<img src="./images/combine/window.png" alt="window	" />
+						</picture>
 					</article>
 				</div>
 			</section>

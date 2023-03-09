@@ -69,6 +69,7 @@ body * {
 }
 
 .header__menu {
+	background-color: var(--colorContent);
 	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(4, 150px);
@@ -117,17 +118,20 @@ body * {
 }
 
 .combine-container {
-	padding: 80px 6%;
+	padding: 80px 5%;
 	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
 	background: url('./images/combine/dots.svg') no-repeat top right,
 		url('./images/combine/rectangle.svg') no-repeat right -20%;
 	display: grid;
 	justify-items: center;
+
+	overflow: hidden;
 }
 
 .combine__title {
+	text-align: center;
 	font-weight: 800;
-	font-size: 96px;
+	font-size: clamp(64px, 9vw, 96px);
 	line-height: 104px;
 	letter-spacing: -3px;
 	color: var(--mainColorText);
@@ -146,39 +150,47 @@ body * {
 	left: -5%;
 	top: 60%;
 	z-index: -1;
-	width: 110%;
-	height: 40%;
+	width: 115%;
+	height: 50%;
 	background-color: var(--colorHighlightAfter);
-	border-radius: 999px;
+	border-radius: 50px;
+}
+
+.combine__highlight_xs {
+	display: none;
 }
 
 .combine__sub-title {
+	text-align: center;
 	margin-top: 15px;
 	font-weight: 900;
-	font-size: 64px;
+	font-size: clamp(24px, 5vw, 64px);
 	line-height: 77px;
 	letter-spacing: -1px;
 	color: var(--mainColorText);
 }
 
+.combine__sub-title_xs {
+	display: none;
+}
+
 .combine__content {
-	margin-top: 65px;
+	margin-top: 55px;
+	overflow: hidden;
 	display: grid;
-	gap: 30px;
+	gap: clamp(15px, 2vw, 30px);
 	place-content: center;
 
-	/* auto-fill auto-fit */
-
-	grid-template-columns: repeat(2, minmax(130px, 275px)) repeat(
+	grid-template-columns: repeat(2, minmax(150px, 270px)) repeat(
 			3,
-			minmax(88px, 170px)
+			minmax(82px, 170px)
 		);
 
-	grid-template-rows: 90px minmax(auto, 190px) minmax(100px, 175px) 82px 42px;
+	grid-template-rows: 90px minmax(auto, 210px) minmax(110px, 175px) 85px 42px;
 
 	grid-template-areas:
-		'textOne imageOne imageOne textTwo textTwo'
-		'sphere imageOne imageOne a nike'
+		'textOne man man textTwo textTwo'
+		'sphere man man a nike'
 		'sphere book girl girl window'
 		'btn book girl girl window'
 		'. . girl girl .';
@@ -193,8 +205,7 @@ body * {
 }
 
 .combine__item:nth-child(2) {
-	grid-area: imageOne;
-	align-self: self-end;
+	grid-area: man;
 	display: grid;
 	grid-template-rows: 1fr;
 	grid-template-columns: 1fr;
@@ -206,34 +217,42 @@ body * {
 	grid-area: 1/2/1/1;
 }
 
-.combine__item:nth-child(2) img {
+.combine__item:nth-child(2) picture {
 	grid-area: 1/2/1/1;
+}
+
+.combine__item:nth-child(2) img {
+	height: 100%;
 }
 
 .combine__item:nth-child(3) {
 	grid-area: textTwo;
-	padding-top: 55px;
+	padding-top: 70px;
 }
 
 .combine__item:nth-child(4) {
 	grid-area: sphere;
-	align-self: center;
+	align-self: self-end;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 32px;
-	text-align: center;
-	letter-spacing: 0.2px;
 	color: var(--colorContent);
+}
+
+.combine__item:nth-child(4) strong {
+	font-weight: 700;
 }
 
 .combine__item:nth-child(4) figcaption {
 	grid-area: 1/2/1/1;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 32px;
+	text-align: center;
+	letter-spacing: 0.2px;
 }
 
-.combine__item:nth-child(4) img {
+.combine__item:nth-child(4) picture {
 	grid-area: 1/2/1/1;
 }
 
@@ -249,7 +268,10 @@ body * {
 
 .combine__item:nth-child(7) {
 	grid-area: btn;
+	justify-self: center;
 	font-size: clamp(14px, 2.5vw, 32px);
+	height: clamp(37px, 6vw, 82px);
+	width: clamp(130px, 20vw, 270px);
 	border-radius: 50px;
 }
 
@@ -269,7 +291,7 @@ body * {
 	text-align: center;
 }
 
-.combine__item:nth-child(9) img {
+.combine__item:nth-child(9) picture {
 	grid-area: 1/2/1/1;
 }
 
@@ -286,12 +308,11 @@ body * {
 
 :is(.combine__item:nth-child(2), .combine__item:nth-child(9)) {
 	font-weight: 700;
-	font-size: clamp(22px, 3vw, 47px);
+	font-size: clamp(22px, 3vw, 46px);
 	line-height: 56px;
 	letter-spacing: -1px;
 	color: var(--colorContent);
 	text-shadow: 0px 4px 0px #000000;
-	position: relative;
 }
 
 @media screen and (max-width: 1064px) {
@@ -312,6 +333,22 @@ body * {
 	}
 	.header__item:not(.header__item:nth-child(4))::after {
 		right: 9%;
+	}
+
+	:is(.combine__item:nth-child(1), .combine__item:nth-child(3)) {
+		display: none;
+	}
+
+	.combine__content {
+		grid-template-rows: minmax(0, 1fr) minmax(150px, 190px) minmax(150px, 220px) minmax(
+				40px,
+				70px
+			);
+		grid-template-areas:
+			'. man man . .'
+			'sphere man man a nike'
+			'sphere book girl girl window'
+			'btn book girl girl .';
 	}
 }
 
@@ -348,12 +385,57 @@ body * {
 	}
 
 	.combine-container {
+		padding: 48px 0;
+		background: url('./images/combine/dots.svg') no-repeat top right,
+			url('./images/combine/rectangle-863.svg') no-repeat top right,
+			url('./images/combine/wave-863.svg') repeat-x top / auto;
 	}
 
-	.combine-container {
-		background: url('./images/combine/dots.svg') no-repeat right,
-			url('./images/combine/rectangle-863.svg') no-repeat right,
-			url('./images/combine/wave-863.svg') repeat-x bottom / auto;
+	.combine__content {
+		grid-template-rows: minmax(0, 1fr) minmax(150px, 190px) minmax(150px, 170px) minmax(
+				40px,
+				70px
+			);
+		grid-template-areas:
+			'. man man . .'
+			'sphere man man a nike'
+			'sphere book girl girl window'
+			'btn book girl girl .';
+	}
+
+	.combine__item:nth-child(4) {
+		align-self: self-end;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.combine__content {
+		grid-template-columns: 130px 130px 80px 120px;
+		grid-template-rows: 183px 80px 50px 80px 55px;
+
+		grid-template-areas:
+			'sphere man man a'
+			'sphere nike girl girl'
+			'window nike girl girl'
+			'window book btn btn'
+			'window book . .';
+	}
+
+	.combine__item:nth-child(2) img {
+		height: auto;
+	}
+
+	.combine__item:nth-child(2) figcaption {
+		padding-top: 0;
+	}
+
+	.combine__item:nth-child(7) {
+		justify-self: self-start;
+		align-self: self-end;
+	}
+
+	.combine__item:nth-child(10) {
+		justify-self: self-end;
 	}
 }
 
@@ -374,6 +456,31 @@ body * {
 
 	.header__burger-item {
 		width: auto;
+	}
+
+	.combine__title {
+		font-weight: 900;
+	}
+
+	.combine__highlight_sm {
+		display: none;
+	}
+
+	.combine__highlight_xs {
+		display: block;
+		font-weight: 700;
+	}
+
+	.combine__sub-title_sm {
+		display: none;
+	}
+
+	.combine__sub-title_xs {
+		display: block;
+		width: 300px;
+		font-weight: 700;
+		line-height: 36px;
+		letter-spacing: 0.25px;
 	}
 }
 
