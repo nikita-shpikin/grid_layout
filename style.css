@@ -130,6 +130,7 @@ body * {
 
 .combine__title {
 	text-align: center;
+	white-space: nowrap;
 	font-weight: 800;
 	font-size: clamp(64px, 9vw, 96px);
 	line-height: 104px;
@@ -172,6 +173,20 @@ body * {
 
 .combine__sub-title_xs {
 	display: none;
+}
+
+.combine__arrow {
+	display: none;
+	margin-top: 30px;
+	cursor: pointer;
+	background-color: rgb(253, 249, 239);
+	width: 64px;
+	height: 64px;
+	border-radius: 50px;
+}
+
+.combine__arrow img {
+	transform: translate(9px, 9px);
 }
 
 .combine__content {
@@ -241,6 +256,10 @@ body * {
 
 .combine__item:nth-child(4) strong {
 	font-weight: 700;
+}
+
+.combine__item:nth-child(4) strong:last-of-type {
+	display: none;
 }
 
 .combine__item:nth-child(4) figcaption {
@@ -394,7 +413,7 @@ body * {
 	.combine__content {
 		grid-template-rows: minmax(0, 1fr) minmax(150px, 190px) minmax(150px, 170px) minmax(
 				40px,
-				70px
+				115px
 			);
 		grid-template-areas:
 			'. man man . .'
@@ -409,34 +428,6 @@ body * {
 }
 
 @media screen and (max-width: 768px) {
-	.combine__content {
-		grid-template-columns: 130px 130px 80px 120px;
-		grid-template-rows: 183px 80px 50px 80px 55px;
-
-		grid-template-areas:
-			'sphere man man a'
-			'sphere nike girl girl'
-			'window nike girl girl'
-			'window book btn btn'
-			'window book . .';
-	}
-
-	.combine__item:nth-child(2) img {
-		height: auto;
-	}
-
-	.combine__item:nth-child(2) figcaption {
-		padding-top: 0;
-	}
-
-	.combine__item:nth-child(7) {
-		justify-self: self-start;
-		align-self: self-end;
-	}
-
-	.combine__item:nth-child(10) {
-		justify-self: self-end;
-	}
 }
 
 @media screen and (max-width: 576px) {
@@ -448,6 +439,7 @@ body * {
 		font-size: 24px;
 		justify-self: flex-start;
 	}
+
 	.header__btn {
 		font-size: 18px;
 		border-radius: 8px;
@@ -481,6 +473,58 @@ body * {
 		font-weight: 700;
 		line-height: 36px;
 		letter-spacing: 0.25px;
+	}
+
+	.combine__arrow {
+		display: block;
+	}
+
+	.combine__content {
+		margin-top: 24px;
+		grid-template-columns: 130px 130px 80px 120px;
+		grid-template-rows: 183px 80px 50px 80px 55px;
+		grid-template-areas:
+			'sphere man man a'
+			'sphere nike girl girl'
+			'window nike girl girl'
+			'window book btn btn'
+			'window book . .';
+	}
+
+	.combine__item:nth-child(2) img {
+		height: auto;
+	}
+
+	.combine__item:nth-child(2) figcaption {
+		padding-top: 0;
+	}
+
+	.combine__item:nth-child(4) figcaption {
+		margin-top: 10px;
+		font-size: 9px;
+		line-height: 15px;
+		letter-spacing: 0.0963771px;
+	}
+
+	.combine__item:nth-child(4) br {
+		display: none;
+	}
+
+	.combine__item:nth-child(4) strong:first-of-type {
+		display: none;
+	}
+
+	.combine__item:nth-child(4) strong:last-of-type {
+		display: block;
+	}
+
+	.combine__item:nth-child(7) {
+		justify-self: self-start;
+		align-self: self-end;
+	}
+
+	.combine__item:nth-child(10) {
+		justify-self: self-end;
 	}
 }
 
