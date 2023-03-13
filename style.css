@@ -232,6 +232,10 @@ body * {
 	grid-area: 1/2/1/1;
 }
 
+.combine__item:nth-child(2) figcaption:last-of-type {
+	display: none;
+}
+
 .combine__item:nth-child(2) picture {
 	grid-area: 1/2/1/1;
 }
@@ -278,11 +282,30 @@ body * {
 .combine__item:nth-child(5) {
 	grid-area: a;
 	align-self: end;
+	display: grid;
+	position: relative;
+}
+
+.combine__item:nth-child(5) picture {
+	grid-area: 1/2/1/1;
+}
+
+.combine__item:nth-child(5) figcaption {
+	display: none;
 }
 
 .combine__item:nth-child(6) {
 	grid-area: nike;
 	align-self: end;
+	display: grid;
+}
+
+.combine__item:nth-child(6) picture {
+	grid-area: 1/2/1/1;
+}
+
+.combine__item:nth-child(6) figcaption {
+	display: none;
 }
 
 .combine__item:nth-child(7) {
@@ -290,7 +313,7 @@ body * {
 	justify-self: center;
 	font-size: clamp(14px, 2.5vw, 32px);
 	height: clamp(37px, 6vw, 82px);
-	width: clamp(130px, 20vw, 270px);
+	width: clamp(130px, 20vw, 250px);
 	border-radius: 50px;
 }
 
@@ -298,7 +321,20 @@ body * {
 	grid-area: book;
 }
 
+.combine__item:nth-child(8) {
+	display: grid;
+}
+
+.combine__item:nth-child(8) figcaption {
+	display: none;
+}
+
+.combine__item:nth-child(8) picture {
+	grid-area: 1/2/1/1;
+}
+
 .combine__item:nth-child(9) {
+	position: relative;
 	grid-area: girl;
 	display: grid;
 	grid-template-columns: 1fr;
@@ -310,12 +346,25 @@ body * {
 	text-align: center;
 }
 
+.combine__item:nth-child(9) figcaption:last-of-type {
+	display: none;
+}
+
 .combine__item:nth-child(9) picture {
 	grid-area: 1/2/1/1;
 }
 
 .combine__item:nth-child(10) {
 	grid-area: window;
+	display: grid;
+}
+
+.combine__item:nth-child(10) figcaption {
+	display: none;
+}
+
+.combine__item:nth-child(10) picture {
+	grid-area: 1/2/1/1;
 }
 
 :is(.combine__item:nth-child(1), .combine__item:nth-child(3)) {
@@ -411,23 +460,26 @@ body * {
 	}
 
 	.combine__content {
-		grid-template-rows: minmax(0, 1fr) minmax(150px, 190px) minmax(150px, 170px) minmax(
-				40px,
-				115px
-			);
-		grid-template-areas:
-			'. man man . .'
-			'sphere man man a nike'
-			'sphere book girl girl window'
-			'btn book girl girl .';
-	}
+		grid-template-rows: 1fr minmax(150px, 190px) repeat(2, minmax(75px, 95px)) 1fr;
 
-	.combine__item:nth-child(4) {
-		align-self: self-end;
+		grid-template-columns:
+			1fr
+			repeat(2, minmax(67px, 270px)) repeat(3, minmax(22px, 173px))
+			1fr;
+
+		grid-template-areas:
+			'. . man man . .'
+			'. sphere man man a nike'
+			'. sphere book girl girl window'
+			'. btn book girl girl window'
+			'. . . . . .';
 	}
 }
 
 @media screen and (max-width: 768px) {
+	.combine__title {
+		white-space: normal;
+	}
 }
 
 @media screen and (max-width: 576px) {
@@ -481,14 +533,14 @@ body * {
 
 	.combine__content {
 		margin-top: 24px;
-		grid-template-columns: 130px 130px 80px 120px;
-		grid-template-rows: 183px 80px 50px 80px 55px;
+		grid-template-columns: 120px 130px 80px 105px;
+		grid-template-rows: 183px 75px 50px 80px 55px;
 		grid-template-areas:
 			'sphere man man a'
 			'sphere nike girl girl'
 			'window nike girl girl'
 			'window book btn btn'
-			'window book . .';
+			'. book . .';
 	}
 
 	.combine__item:nth-child(2) img {
@@ -496,9 +548,16 @@ body * {
 	}
 
 	.combine__item:nth-child(2) figcaption {
-		padding-top: 0;
+		padding-top: 10px;
 	}
 
+	.combine__item:nth-child(2) figcaption:first-of-type {
+		display: none;
+	}
+
+	.combine__item:nth-child(2) figcaption:last-of-type {
+		display: block;
+	}
 	.combine__item:nth-child(4) figcaption {
 		margin-top: 10px;
 		font-size: 9px;
@@ -518,13 +577,93 @@ body * {
 		display: block;
 	}
 
+	.combine__item:nth-child(5) figcaption {
+		display: block;
+		position: absolute;
+		left: 8%;
+		top: 5%;
+		grid-area: 1/2/1/1;
+	}
+
+	.combine__item:nth-child(6) figcaption {
+		display: block;
+		grid-area: 1/2/1/1;
+		text-align: center;
+		padding-top: 110px;
+
+		font-weight: 400;
+		font-size: 11.5653px;
+		line-height: 17px;
+		letter-spacing: -0.120471px;
+	}
+
 	.combine__item:nth-child(7) {
 		justify-self: self-start;
 		align-self: self-end;
 	}
 
+	.combine__item:nth-child(8) figcaption {
+		display: block;
+		padding-top: 83px;
+		grid-area: 1/2/1/1;
+		text-align: center;
+		font-weight: 700;
+		font-size: 23.1305px;
+		line-height: 27px;
+
+		letter-spacing: -0.481886px;
+		color: var(--mainColorText);
+	}
+
+	.combine__item:nth-child(9) figcaption {
+		position: absolute;
+		top: 34%;
+		left: 10%;
+		width: 140px;
+	}
+
+	.combine__item:nth-child(9) figcaption:first-of-type {
+		display: none;
+	}
+
+	.combine__item:nth-child(9) figcaption:last-of-type {
+		display: block;
+	}
+
+	.combine__item:nth-child(9) span {
+		display: block;
+		position: absolute;
+		top: 100px;
+		white-space: nowrap;
+		font-size: 8.67394px;
+		line-height: 15px;
+		letter-spacing: 0.0963771px;
+		color: var(--mainColorText);
+	}
+
 	.combine__item:nth-child(10) {
 		justify-self: self-end;
+	}
+
+	.combine__item:nth-child(10) figcaption {
+		display: block;
+		padding-top: 85px;
+		grid-area: 1/2/1/1;
+		text-align: center;
+	}
+
+	:is(.combine__item:nth-child(5), .combine__item:nth-child(10)) {
+		font-weight: 700;
+		font-size: 8.67394px;
+		line-height: 15px;
+		letter-spacing: 0.0963771px;
+		color: var(--mainColorText);
+	}
+
+	:is(.combine__item:nth-child(2), .combine__item:nth-child(9)) {
+		line-height: 27px;
+		letter-spacing: -0.481886px;
+		text-shadow: none;
 	}
 }
 
