@@ -7,6 +7,8 @@
 	--colorHighlight: #e84393;
 	--colorHighlightAfter: #55efc4;
 	--basicDark: #000;
+	--colorListOne: #0984e3;
+	--colorListTwo: #00b894;
 }
 
 body * {
@@ -117,7 +119,7 @@ body * {
 	width: 100%;
 }
 
-.combine-container {
+.combine {
 	padding: 80px 5%;
 	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
 	background: url('./images/combine/dots.svg') no-repeat top right,
@@ -383,6 +385,89 @@ body * {
 	text-shadow: 0px 4px 0px #000000;
 }
 
+.designs {
+	padding: 80px 7%;
+}
+
+.designs__title {
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 48px;
+	letter-spacing: -0.5px;
+	color: var(--mainColorText);
+}
+
+.designs__title span {
+	margin-right: -10px;
+	vertical-align: text-bottom;
+}
+
+.designs__text {
+	margin-top: 15px;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 36px;
+	letter-spacing: -0.25px;
+	color: var(--mainColorText);
+}
+
+.designs__content {
+	margin-top: 40px;
+	display: grid;
+	row-gap: 40px;
+	column-gap: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.designs__item {
+	color: var(--mainColorText);
+}
+
+.designs__item img {
+	padding: 7px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50px;
+}
+
+.designs__item:nth-child(1) img {
+	background-color: var(--colorHighlight);
+}
+
+.designs__item:nth-child(2) img {
+	background-color: var(--colorListOne);
+}
+
+.designs__item:nth-child(3) img {
+	background-color: var(--colorActive);
+}
+
+.designs__item:nth-child(4) img {
+	background-color: var(--colorListTwo);
+}
+
+.designs__item h4 {
+	margin-top: 25px;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+	letter-spacing: 0.25px;
+}
+
+.designs__item p {
+	margin-top: 16px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 32px;
+}
+
+.designs__item a {
+	margin-top: 10px;
+	border-radius: 16px;
+	width: clamp(109px, 9vw, 146px);
+	height: clamp(36px, 4vw, 48px);
+}
+
 @media screen and (max-width: 1064px) {
 	.header-container {
 		grid-template-columns: 1fr 12fr 3fr;
@@ -452,7 +537,7 @@ body * {
 		display: block;
 	}
 
-	.combine-container {
+	.combine {
 		padding: 48px 0;
 		background: url('./images/combine/dots.svg') no-repeat top right,
 			url('./images/combine/rectangle-863.svg') no-repeat top right,
