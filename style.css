@@ -386,26 +386,21 @@ body * {
 }
 
 .designs {
-	padding: 80px 7%;
+	padding: 5.7vw 9.6vw;
 }
 
 .designs__title {
 	font-weight: 700;
-	font-size: 32px;
+	font-size: clamp(24px, 7vw, 32px);
 	line-height: 48px;
 	letter-spacing: -0.5px;
 	color: var(--mainColorText);
 }
 
-.designs__title span {
-	margin-right: -10px;
-	vertical-align: text-bottom;
-}
-
 .designs__text {
 	margin-top: 15px;
 	font-weight: 400;
-	font-size: 24px;
+	font-size: clamp(18px, 3vw, 24px);
 	line-height: 36px;
 	letter-spacing: -0.25px;
 	color: var(--mainColorText);
@@ -421,6 +416,8 @@ body * {
 
 .designs__item {
 	color: var(--mainColorText);
+	display: grid;
+	place-content: space-between;
 }
 
 .designs__item img {
@@ -449,7 +446,7 @@ body * {
 .designs__item h4 {
 	margin-top: 25px;
 	font-weight: 700;
-	font-size: 24px;
+	font-size: clamp(18px, 3vw, 24px);
 	line-height: 36px;
 	letter-spacing: 0.25px;
 }
@@ -457,15 +454,27 @@ body * {
 .designs__item p {
 	margin-top: 16px;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: clamp(13.5px, 3vw, 18px);
 	line-height: 32px;
 }
 
 .designs__item a {
 	margin-top: 10px;
 	border-radius: 16px;
-	width: clamp(109px, 9vw, 146px);
+	width: clamp(109px, 14vw, 146px);
 	height: clamp(36px, 4vw, 48px);
+	font-size: clamp(13.5px, 2vw, 18px);
+	line-height: 32px;
+	letter-spacing: 0.2px;
+}
+
+.designs__highlight {
+	vertical-align: inherit;
+}
+
+.designs__emoji span {
+	margin-right: -10px;
+	vertical-align: text-bottom;
 }
 
 @media screen and (max-width: 1064px) {
@@ -559,11 +568,19 @@ body * {
 			'. btn book girl girl window'
 			'. . . . . .';
 	}
+
+	.designs {
+		padding: 11vw 4vw;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.combine__title {
 		white-space: normal;
+	}
+
+	.designs__emoji {
+		display: none;
 	}
 }
 
@@ -749,6 +766,37 @@ body * {
 		line-height: 27px;
 		letter-spacing: -0.481886px;
 		text-shadow: none;
+	}
+
+	.designs__title {
+		line-height: 36px;
+		letter-spacing: 0.25px;
+	}
+
+	.designs__text {
+		line-height: 32px;
+	}
+
+	.designs__highlight {
+		color: var(--colorActive);
+	}
+
+	.designs__item img {
+		border-radius: 12px;
+	}
+
+	.designs__item h4 {
+		line-height: 27px;
+		letter-spacing: 0.1875px;
+	}
+
+	.designs__item p {
+		line-height: 24px;
+	}
+
+	.designs__item a {
+		line-height: 24px;
+		letter-spacing: 0.15px;
 	}
 }
 
