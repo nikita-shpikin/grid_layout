@@ -42,8 +42,8 @@ body * {
 	border: none;
 }
 
-.header-container {
-	padding: 16px 5%;
+.header {
+	padding: 16px 135px;
 	display: grid;
 	grid-template-columns: 70px 1fr 12fr 170px;
 	place-items: center;
@@ -123,13 +123,12 @@ body * {
 }
 
 .combine {
-	padding: 80px 5%;
+	padding: 80px 135px;
 	box-shadow: inset 0px 4px 8px -6px rgba(40, 50, 56, 0.32);
 	background: url('./images/combine/dots.svg') no-repeat top right,
 		url('./images/combine/rectangle.svg') no-repeat right -20%;
 	display: grid;
 	justify-items: center;
-
 	overflow: hidden;
 }
 
@@ -389,7 +388,7 @@ body * {
 }
 
 .designs {
-	padding: 5.7vw 9.6vw;
+	padding: 80px 135px;
 }
 
 .designs__title {
@@ -481,7 +480,7 @@ body * {
 }
 
 .affordable {
-	padding: 5vw calc(1vw + 10px);
+	padding: 80px 135px;
 	color: var(--mainColorText);
 }
 
@@ -498,7 +497,7 @@ body * {
 }
 
 .affordable__subTitle {
-	margin-top: 2.5vw;
+	margin-top: 35px;
 	text-align: center;
 	font-size: clamp(24px, 3vw, 32px);
 	font-weight: 700;
@@ -673,6 +672,14 @@ body * {
 	grid-template-columns: repeat(2, minmax(40px, 1fr));
 }
 
+.footer__copy {
+	display: none;
+}
+
+.footer__made {
+	display: none;
+}
+
 .footer__subTitle {
 	font-weight: 800;
 	font-size: 12px;
@@ -697,7 +704,7 @@ body * {
 
 .footer__mail {
 	font-weight: 700;
-	font-size: 32px;
+	font-size: clamp(18px, 4vw, 32px);
 	line-height: 48px;
 	letter-spacing: -0.5px;
 	color: var(--colorActive);
@@ -707,7 +714,7 @@ body * {
 	margin-top: 16px;
 	display: grid;
 	gap: 20px;
-	grid-template-columns: repeat(3, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .footer__form {
@@ -722,6 +729,7 @@ body * {
 }
 
 .footer__input {
+	width: 100%;
 	padding: 8px;
 	border-radius: 16px;
 	background-color: rgba(194, 194, 194, 0.2);
@@ -763,7 +771,7 @@ body * {
 
 .footer__btn {
 	height: 80px;
-	width: 170px;
+	width: clamp(110px, 12vw, 170px);
 	justify-self: end;
 
 	text-transform: uppercase;
@@ -777,8 +785,30 @@ body * {
 		0px 4px 8px rgba(38, 50, 56, 0.08);
 }
 
+@media screen and (max-width: 1440px) {
+	.header {
+		padding: 16px 5%;
+	}
+
+	.combine {
+		padding: 80px 5%;
+	}
+
+	.affordable {
+		padding: 5vw calc(1vw + 10px);
+	}
+
+	.affordable__subTitle {
+		margin-top: 2.5vw;
+	}
+
+	.footer {
+		padding: 6vw 10%;
+	}
+}
+
 @media screen and (max-width: 1064px) {
-	.header-container {
+	.header {
 		grid-template-columns: 1fr 12fr 3fr;
 	}
 
@@ -812,10 +842,14 @@ body * {
 			'sphere book girl girl window'
 			'btn book girl girl .';
 	}
+
+	.designs {
+		padding: 5.7vw 9.6vw;
+	}
 }
 
 @media screen and (max-width: 950px) {
-	.header-container {
+	.header {
 		grid-template-columns: 1fr 2fr 1fr;
 	}
 
@@ -876,6 +910,23 @@ body * {
 	.affordable__subTitle {
 		margin-top: 0;
 	}
+
+	.footer {
+		grid-template:
+			'. .'
+			'info info';
+	}
+	.footer > dl:nth-child(2) {
+		align-self: center;
+	}
+
+	.footer > dl:nth-child(3) {
+		grid-area: info;
+	}
+
+	.footer > div {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 768px) {
@@ -886,10 +937,35 @@ body * {
 	.designs__emoji {
 		display: none;
 	}
+
+	.footer {
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template: none;
+		gap: 25px;
+	}
+
+	.footer > dl:nth-child(3) {
+		display: none;
+	}
+
+	.footer__subTitle {
+		display: none;
+	}
+
+	.footer__social {
+		justify-content: center;
+		gap: 2vw;
+	}
+
+	.footer__mail {
+		display: grid;
+		justify-content: center;
+	}
 }
 
 @media screen and (max-width: 576px) {
-	.header-container {
+	.header {
 		grid-template-columns: 1fr 2fr 2fr;
 	}
 
@@ -1135,6 +1211,52 @@ body * {
 
 	.affordable__content {
 		place-content: start;
+	}
+
+	.footer {
+		padding-top: 65px;
+		gap: 0;
+
+		background: url('./images/footer/rectangle-yellow.svg') no-repeat bottom
+				left,
+			url('./images/footer/rectangle-blue.svg') no-repeat bottom left,
+			url('./images/footer/dots.svg') no-repeat bottom left 50px;
+	}
+
+	.footer__copy {
+		display: block;
+
+		order: 0;
+
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+
+		text-align: center;
+		letter-spacing: 0.2px;
+
+		color: var(--mainColorText);
+	}
+
+	.footer__made {
+		display: block;
+
+		order: 1;
+
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 22px;
+
+		text-align: center;
+		letter-spacing: 0.3px;
+		color: #00b894;
+	}
+
+	.footer dl:nth-child(1) {
+		order: 3;
+	}
+	.footer dl:nth-child(2) {
+		order: 2;
 	}
 }
 
