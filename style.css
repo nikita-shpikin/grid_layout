@@ -1215,12 +1215,18 @@ body * {
 
 	.footer {
 		padding-top: 65px;
+		padding-bottom: 10vw;
+
 		gap: 0;
 
 		background: url('./images/footer/rectangle-yellow.svg') no-repeat bottom
 				left,
 			url('./images/footer/rectangle-blue.svg') no-repeat bottom left,
 			url('./images/footer/dots.svg') no-repeat bottom left 50px;
+	}
+
+	.footer__social {
+		justify-content: space-between;
 	}
 
 	.footer__copy {
@@ -1255,8 +1261,13 @@ body * {
 	.footer dl:nth-child(1) {
 		order: 3;
 	}
+
 	.footer dl:nth-child(2) {
 		order: 2;
+	}
+
+	svg > path {
+		stroke: var(--mainColorText);
 	}
 }
 
