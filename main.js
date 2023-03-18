@@ -21,3 +21,16 @@ headerLinks.forEach((link, index) => {
 		headerLinks[index].classList.add('header__link_active');
 	});
 });
+
+let affordableItems = document.querySelectorAll('.affordable__item');
+
+affordableItems.forEach((item, index) => {
+	item.addEventListener('click', function () {
+		affordableItems.forEach(item => {
+			console.log('x');
+			item.classList.remove('affordable__item_active');
+		});
+
+		affordableItems[index].classList.add('affordable__item_active');
+	});
+});
