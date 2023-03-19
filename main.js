@@ -10,6 +10,15 @@ headerBurger.addEventListener('click', () => {
 	}
 });
 
+document.addEventListener('click', function (e) {
+	if (
+		!e.target.closest('.header__menu') &&
+		!e.target.closest('.header__burger')
+	) {
+		headerMenu.style.display = 'none';
+	}
+});
+
 let headerLinks = document.querySelectorAll('.header__link');
 
 headerLinks.forEach((link, index) => {

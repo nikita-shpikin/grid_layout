@@ -879,7 +879,7 @@ body * {
 		border: 1px solid var(--secondaryColor);
 		border-radius: 8px;
 		padding: 70px 5px;
-		animation: burgerShow 0.8s ease-in;
+		animation: burgerShow 0.6s ease-in;
 	}
 
 	.header__burger {
@@ -910,7 +910,7 @@ body * {
 	}
 
 	.designs {
-		padding: 11vw 4vw;
+		padding: 14vw 4vw;
 	}
 
 	.affordable__subTitle {
