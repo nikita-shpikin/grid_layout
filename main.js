@@ -1,6 +1,5 @@
 let headerBurger = document.querySelector('.header__burger');
 let headerMenu = document.querySelector('.header__menu');
-
 headerBurger.addEventListener('click', () => {
 	if (headerMenu.style.display === 'grid') {
 		headerMenu.style.display = 'none';
@@ -10,17 +9,7 @@ headerBurger.addEventListener('click', () => {
 	}
 });
 
-document.addEventListener('click', function (e) {
-	if (
-		!e.target.closest('.header__menu') &&
-		!e.target.closest('.header__burger')
-	) {
-		headerMenu.style.display = 'none';
-	}
-});
-
 let headerLinks = document.querySelectorAll('.header__link');
-
 headerLinks.forEach((link, index) => {
 	link.addEventListener('click', function () {
 		headerLinks.forEach(item => {
@@ -32,7 +21,6 @@ headerLinks.forEach((link, index) => {
 });
 
 let affordableItems = document.querySelectorAll('.affordable__item');
-
 affordableItems.forEach((item, index) => {
 	item.addEventListener('click', function () {
 		affordableItems.forEach(item => {
@@ -42,4 +30,17 @@ affordableItems.forEach((item, index) => {
 
 		affordableItems[index].classList.add('affordable__item_active');
 	});
+});
+
+document.addEventListener('click', function (e) {
+	if (
+		!e.target.closest('.header__menu') &&
+		!e.target.closest('.header__burger')
+	) {
+		if (document.documentElement.clientWidth > 950) {
+			headerMenu.style.display = 'grid';
+		} else {
+			headerMenu.style.display = 'none';
+		}
+	}
 });
