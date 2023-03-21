@@ -539,7 +539,7 @@ body * {
 	position: relative;
 	border-radius: 16px;
 	background-color: var(--colorContent);
-	transition: box-shadow ease-in 0.4s;
+	transition: all ease-in 0.4s;
 	display: grid;
 	place-content: space-between;
 	height: 536px;
@@ -917,11 +917,53 @@ body * {
 		margin-top: 0;
 	}
 
+	.affordable__item {
+		box-shadow: 0px 8px 8px 0px rgba(30, 50, 56, 0.2);
+	}
+
+	.affordable__item_active {
+		background-color: var(--colorActive);
+	}
+
+	.affordable__item::before {
+		display: none;
+	}
+
+	.affordable__item_active h4 {
+		color: var(--colorHighlightAfter);
+	}
+
+	.affordable__item_active h4:nth-last-child(n + 1)::after {
+		color: var(--colorHighlightAfter);
+		border-color: var(--colorHighlightAfter);
+	}
+
+	.affordable__item_active strong {
+		color: var(--colorContent);
+		text-shadow: 0px 4px 0px #000000;
+	}
+
+	.affordable__item_active:nth-last-child(n + 1) li:before {
+		background-color: var(--mainColorText);
+		color: var(--colorContent);
+	}
+
+	.affordable__item_active a {
+		background-color: var(--colorContent);
+		color: var(--mainColorText);
+	}
+
+	.affordable__item_active a:hover {
+		background-color: var(--mainColorText);
+		color: var(--colorContent);
+	}
+
 	.footer {
 		grid-template:
 			'. .'
 			'info info';
 	}
+
 	.footer > dl:nth-child(2) {
 		align-self: center;
 	}
@@ -1165,10 +1207,6 @@ body * {
 
 	.designs__highlight {
 		color: var(--colorActive);
-	}
-
-	.designs__content {
-		padding: 0 11px;
 	}
 
 	.designs__item img {
