@@ -768,6 +768,8 @@ body * {
 	border-radius: 16px;
 	resize: none;
 
+	white-space: pre-wrap;
+    	overflow-wrap: break-word;
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 32px;
